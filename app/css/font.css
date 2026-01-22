@@ -1,0 +1,15 @@
+@font-face {
+<<<<<<< HEAD
+  font-family: 'onest';
+  src: url('../assets/fonts/Onest-Regular.ttf') format('truetype');
+=======
+  font-family: "onest";
+  src: url("../assets/Fonts/Onest-Regular.ttf") format("truetype");
+>>>>>>> cea5e5115e0512ed73f969a83fda4e72342aab9e
+  font-weight: normal;
+  font-style: normal;
+}
+
+.main-font {
+  font-family: "onest";
+}
