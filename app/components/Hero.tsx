@@ -1,14 +1,4 @@
-<<<<<<< HEAD
 
-
-export default function Hero() {
-    return (
-        <div>
-            
-        </div>
-    );
-}
-=======
 export default function Hero() {
   return (
     <div className="w-full h-screen  bg-zinc-50 font-sans dark:bg-black main-font">
@@ -21,4 +11,3 @@ export default function Hero() {
     </div>
   );
 }
->>>>>>> cea5e5115e0512ed73f969a83fda4e72342aab9e
