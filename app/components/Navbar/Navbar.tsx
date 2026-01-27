@@ -71,12 +71,7 @@ export default function Navbar() {
         <button
           onClick={handleMenuClick}
           className='flex items-center gap-3 text-white group z-50 relative'>
-          <img
-            ref={shineRef}
-            src={shine.src}
-            alt='Menu Icon'
-            className='w-4 h-4 object-contain'
-          />
+          
           <span className='text-lg font-light tracking-wide'>Menu</span>
         </button>
       </div>

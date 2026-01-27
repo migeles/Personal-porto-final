@@ -4,7 +4,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useRef, useMemo, useEffect } from "react";
 import * as THREE from "three";
 
-// --- SHADERS (Unchanged, but ensured uTime is used heavily) ---
+// --- SHADERS (Unchanged) ---
 const vertexShader = `
   varying vec2 vUv;
   void main() {
@@ -28,7 +28,6 @@ const fragmentShader = `
     float dist = distance(uv, uMouse);
     float decay = smoothstep(0.9, 0.0, dist);
     
-    // Create a "Swirl" effect based on TIME
     float angle = sin(uTime * 0.8) * decay * 2.0;
     float s = sin(angle);
     float c = cos(angle);
@@ -36,7 +35,6 @@ const fragmentShader = `
     uv = ((uv - uMouse) * rot) + uMouse;
 
     // --- WAVES ---
-    // Increased multipliers (5.0, 6.0) so waves are visible
     float wave1 = sin(uv.x * 6.0 + uTime * 0.8 + uv.y * 3.0);
     float wave2 = cos(uv.y * 5.0 + uTime * 0.5 + uv.x * 3.0);
     float wave3 = sin((uv.x + uv.y) * 4.0 + uTime * 1.2);
@@ -59,10 +57,9 @@ const fragmentShader = `
 
 // --- MESH COMPONENT ---
 const GradientMesh = () => {
-  const materialRef = useRef<THREE.ShaderMaterial>(null); // Ref for Material specifically
+  const materialRef = useRef<THREE.ShaderMaterial>(null);
   const { viewport } = useThree();
 
-  // Mouse tracking
   const mouse = useRef(new THREE.Vector2(0.5, 0.5));
   const targetMouse = useRef(new THREE.Vector2(0.5, 0.5));
 
@@ -70,9 +67,10 @@ const GradientMesh = () => {
     () => ({
       uTime: { value: 0 },
       uMouse: { value: new THREE.Vector2(0.5, 0.5) },
-      uColor1: { value: new THREE.Color("#1e1b4b") },
-      uColor2: { value: new THREE.Color("#be185d") },
-      uColor3: { value: new THREE.Color("#06b6d4") },
+      // Initial colors set to match the vibrant "Instagram-like" gradients in the image
+      uColor1: { value: new THREE.Color("#4f46e5") }, // Vivid Blue/Indigo
+      uColor2: { value: new THREE.Color("#ec4899") }, // Hot Pink
+      uColor3: { value: new THREE.Color("#fbbf24") }, // Bright Amber/Orange
     }),
     []
   );
@@ -91,25 +89,43 @@ const GradientMesh = () => {
     if (materialRef.current) {
       const time = state.clock.getElapsedTime();
       
-      // 1. UPDATE TIME (Crucial for movement)
       materialRef.current.uniforms.uTime.value = time;
-
-      // 2. SMOOTH MOUSE
       mouse.current.lerp(targetMouse.current, 0.05);
       materialRef.current.uniforms.uMouse.value.copy(mouse.current);
 
-      // 3. COLOR SHIFT
-      const speed = 0.2; // Increased speed
-      materialRef.current.uniforms.uColor1.value.setHSL((0.7 + Math.sin(time * speed) * 0.1) % 1.0, 0.6, 0.2);
-      materialRef.current.uniforms.uColor2.value.setHSL((0.9 + Math.sin(time * speed * 1.2) * 0.1) % 1.0, 0.8, 0.5);
-      materialRef.current.uniforms.uColor3.value.setHSL((0.5 + Math.sin(time * speed * 0.8) * 0.1) % 1.0, 0.8, 0.5);
+      // --- COLOR ADJUSTMENTS ---
+      // We reduced the speed slightly to make it more elegant.
+      const speed = 0.2; 
+      
+      // COLOR 1: Deep Blue/Purple (Based on top-left and bottom-right of your image)
+      // Hue: ~0.6 (Blue range), Saturation: 0.8 (High), Lightness: 0.5 (Bright, not dark)
+      materialRef.current.uniforms.uColor1.value.setHSL(
+        (0.6 + Math.sin(time * speed) * 0.05) % 1.0, 
+        0.8, 
+        0.5 
+      );
+
+      // COLOR 2: Vibrant Pink/Magenta (Based on the red/pink pills)
+      // Hue: ~0.9 (Pink/Red range), Saturation: 0.9, Lightness: 0.6
+      materialRef.current.uniforms.uColor2.value.setHSL(
+        (0.9 + Math.sin(time * speed * 1.2) * 0.05) % 1.0, 
+        0.9, 
+        0.6
+      );
+
+      // COLOR 3: Bright Orange/Yellow (Based on the yellow/orange pills)
+      // Hue: ~0.1 (Orange range), Saturation: 0.9, Lightness: 0.6
+      materialRef.current.uniforms.uColor3.value.setHSL(
+        (0.1 + Math.sin(time * speed * 0.8) * 0.05) % 1.0, 
+        0.9, 
+        0.6
+      );
     }
   });
 
   return (
     <mesh scale={[viewport.width, viewport.height, 1]}>
       <planeGeometry args={[1, 1, 64, 64]} />
-      {/* Attach ref directly to material */}
       <shaderMaterial
         ref={materialRef}
         vertexShader={vertexShader}
@@ -128,7 +144,7 @@ interface FluidGradientProps {
 
 export default function FluidGradient({ className = "" }: FluidGradientProps) {
   return (
-    <div className={`relative w-full h-full overflow-hidden ${className}`}>
+    <div className={`relative w-full h-full aspect-square overflow-hidden ${className}`}>
       <Canvas camera={{ position: [0, 0, 1] }}>
         <GradientMesh />
       </Canvas>
