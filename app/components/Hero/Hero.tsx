@@ -1,6 +1,6 @@
 "use client";
 import FluidGradient from "./FluidGradient"; // Make sure this path is correct
-import decorlogo from "../../assets/image/shine-img.png"; // Your star icon
+import Decorlogo from "../../assets/image/shine-img.png"; // Your star icon
 import SliderName from "./SliderName";
 import RotatingText from "./RotatingText";
 
