@@ -3,61 +3,80 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const originalWords = ["BRANDS", "PEOPLE", "COMMUNITY", "INDIVIDUAL", "YOU"];
-const words = [...originalWords, originalWords[0]]; 
+const words = ["BRANDS", "PEOPLE", "COMMUNITY", "INDIVIDUAL", "YOU"];
 
 export default function RotatingText() {
   const containerRef = useRef<HTMLDivElement>(null);
-  
-  // CONFIGURATION:
-  // 1. This must match the CSS 'leading' and 'height' EXACTLY.
-  // If you change the font size, this relative unit (em) keeps it safe.
-  const LINE_HEIGHT_EM = 1.0; 
 
   useGSAP(() => {
     const tl = gsap.timeline({ repeat: -1 });
-    const totalWords = words.length - 1; 
 
-    originalWords.forEach((_, index) => {
-      const nextIndex = index + 1;
-      
-      tl.to(containerRef.current, {
-        // FIX: Multiply index by the specific line height
-        // Example: 1 * 1.0 = -1.0em, 2 * 1.0 = -2.0em
-        y: `-${nextIndex * LINE_HEIGHT_EM}em`, 
-        duration: 0.8,
-        ease: "power3.inOut",
-        delay: 1.5, 
-      });
+    words.forEach((_, index) => {
+      const nextIndex = (index + 1) % words.length;
+      const currentLetters = `.word-${index} .letter`;
+      const nextLetters = `.word-${nextIndex} .letter`;
 
-      if (nextIndex === totalWords) {
-        tl.to(containerRef.current, {
-          y: "0em",
-          duration: 0,
-          delay: 1.5, 
-        });
-      }
+      tl.to({}, { duration: 2.0 }) // 1. WAIT 2 seconds
+        
+        // 2. Move Current Word UP (Exit)
+        .to(currentLetters, {
+          y: "-100%", 
+          duration: 0.5,
+          stagger: 0.03,
+          ease: "power2.inOut",
+        })
+        
+        // 3. Move Next Word UP (Enter)
+        // We don't need "from" y:100% here because CSS already put it there!
+        .to(nextLetters, {
+            y: "0%", 
+            duration: 0.5,
+            stagger: 0.03,
+            ease: "power2.inOut",
+          },
+          "<" // Sync with previous animation
+        )
+        
+        // 4. RESET the old word to bottom (y:100%) for the next loop
+        .set(currentLetters, { y: "100%" });
     });
-  }, []);
+  }, { scope: containerRef });
 
   return (
-    <div 
-      className="inline-block relative overflow-hidden align-top"
-      // 2. Set the masking height here
-      style={{ height: `${LINE_HEIGHT_EM}em` }}
+    <div
+      ref={containerRef}
+      className="relative inline-grid align-top text-[#ccff00] font-normal overflow-hidden"
     >
-      <div ref={containerRef} className="flex flex-col">
-        {words.map((word, i) => (
-          <span 
-            key={i} 
-            className="block text-[#ccff00] font-normal"
-            // 3. Set the text line-height here
-            style={{ lineHeight: `${LINE_HEIGHT_EM}em` }}
+      {/* GHOST WORD (Keeps container width stable) */}
+      <span className="invisible col-start-1 row-start-1 pointer-events-none">
+        INDIVIDUAL
+      </span>
+
+      {/* RENDER WORDS */}
+      {words.map((word, wordIndex) => {
+        // CSS TRICK:
+        // If it's the first word (Index 0), set CSS to 0 (visible).
+        // If it's any other word, set CSS to full (hidden at bottom).
+        // This prevents the "Flash" or "Skip" because it happens before JS loads.
+        const initialY = wordIndex === 0 ? "translate-y-0" : "translate-y-full";
+
+        return (
+          <div
+            key={wordIndex}
+            className={`col-start-1 row-start-1 flex overflow-hidden word-${wordIndex}`}
           >
-            {word}
-          </span>
-        ))}
-      </div>
+            {word.split("").map((char, charIndex) => (
+              <span
+                key={charIndex}
+                // Apply the translate class to the LETTER itself
+                className={`inline-block letter ${initialY}`}
+              >
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 }
