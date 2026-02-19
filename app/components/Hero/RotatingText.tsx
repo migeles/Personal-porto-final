@@ -45,7 +45,7 @@ export default function RotatingText() {
   return (
     <div
       ref={containerRef}
-      className="relative inline-grid align-top text-[#ccff00] font-normal overflow-hidden"
+      className="relative inline-grid align-top text-[#DBFF12] font-normal overflow-hidden"
     >
       {/* GHOST WORD (Keeps container width stable) */}
       <span className="invisible col-start-1 row-start-1 pointer-events-none">

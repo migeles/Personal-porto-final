@@ -12,7 +12,7 @@ export default function SliderName() {
       gsap.to(sliderRef.current, {
         xPercent: -50, // Move exactly half the total width
         repeat: -1,    // Infinite loop
-        duration: 25,  // Speed (higher is slower)
+        duration: 50,  // Speed (higher is slower)
         ease: "none",  // Linear movement (no speeding up/slowing down)
       });
     });
@@ -35,7 +35,7 @@ export default function SliderName() {
   );
 
   return (
-    <div className="w-full  overflow-hidden   py-10 ">
+    <div className="w-full  overflow-hidden   pt-10 pb-5">
       <div ref={sliderRef} className="flex w-max">
         {/* Set 1: Covers the screen */}
         <div className="flex">
