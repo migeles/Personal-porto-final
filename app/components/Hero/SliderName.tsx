@@ -35,7 +35,7 @@ export default function SliderName() {
   );
 
   return (
-    <div className="w-full  overflow-hidden   pt-10 pb-5">
+    <div className="w-full  overflow-hidden   pt-16 pb-5">
       <div ref={sliderRef} className="flex w-max">
         {/* Set 1: Covers the screen */}
         <div className="flex">
