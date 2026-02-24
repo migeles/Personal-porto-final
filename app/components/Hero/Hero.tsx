@@ -3,10 +3,11 @@ import FluidGradient from "./FluidGradient"; // Make sure this path is correct
 import Decorlogo from "../../assets/image/shine-img.png"; // Your star icon
 import SliderName from "./SliderName";
 import RotatingText from "./RotatingText";
+import SectionBorder from "./SectionBorder";
 
 export default function Hero() {
   return (
-    <section className='w-full min-h-auto bg-[#0a0a0a] text-white md:px-10 pt-13 pb-12  flex flex-col justify-start'>
+    <section className='w-full min-h-auto bg-[#121212] text-white md:px-10 pt-13 pb-12  flex flex-col justify-start'>
       {/* 1. TOP HEADLINE */}
       <div className='w-full max-w-350 mx-auto pt-10 pb-12 px-4'>
         <h1 className='text-4xl md:text-7xl font-normal leading-[1] tracking-tight'>
@@ -27,16 +28,13 @@ export default function Hero() {
 
       {/* 3. BIG FOOTER NAMES */}
       <SliderName />
-      <div>
-        <hr className='border-white opacity-20 ' />
-        <div className="flex w-full text-sm justify-between pt-10 pb-2 px-3 p">
-          <h1 className="font-light yel">Web Developer. <span className="font-bold text-[#DBFF12]">Open for Freelance.</span></h1>
-          <h1>Indonesia</h1>
-        </div>
-        <hr className='opa border-white opacity-20' />
+      <hr className='border-white opacity-20' />
 
-
-      </div>
+      <SectionBorder
+        primaryText='Web Developer.'
+        highlightText='Open for Freelance.'
+        secondaryText='Indonesia'
+      />
     </section>
   );
 }
