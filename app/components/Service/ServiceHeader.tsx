@@ -10,57 +10,38 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ServiceHeader() {
   const containerRef = useRef(null);
   const progressBarRef = useRef(null);
-  const textRef = useRef(null); // 1. Added a ref for the text
+  const textRef = useRef(null);
 
   useGSAP(() => {
-    gsap.fromTo(
-      progressBarRef.current,
-      { width: "0%", backgroundColor: "#ffffff" }, // Explicit starting state
-      {
-        width: "100%", // Animate to full width
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom", 
-          end: "center 70%", 
-          scrub: 1,
-          
-          onUpdate: (self) => {
-            if (self.progress >= 0.99) {
-              // Bar turns yellow
-              gsap.to(progressBarRef.current, { 
-                backgroundColor: "#DBFF12", 
-                duration: 0.2, 
-                overwrite: "auto" 
-              });
-              // Text turns yellow
-              gsap.to(textRef.current, {
-                color: "#DBFF12",
-                duration: 0.2,
-                overwrite: "auto"
-              });
-            } else {
-              // Revert Bar to White
-              gsap.to(progressBarRef.current, { 
-                backgroundColor: "#ffffff", 
-                duration: 0.2, 
-                overwrite: "auto" 
-              });
-              // Revert Text to White
-              gsap.to(textRef.current, {
-                color: "#ffffff",
-                duration: 0.2,
-                overwrite: "auto"
-              });
-            }
-          }
-        },
+    // 1. Create a timeline attached to the ScrollTrigger
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 60%", 
+        end: "top 10%",  
+        scrub: 1,
       }
+    });
+
+    // 2. Animate the bar's width AND background color smoothly
+    tl.fromTo(
+      progressBarRef.current,
+      { width: "0%", backgroundColor: "#ffffff" },
+      { width: "100%", backgroundColor: "#DBFF12", ease: "none" },
+      0 // The '0' tells it to start at the very beginning of the timeline
+    )
+    // 3. Animate the text color simultaneously
+    .fromTo(
+      textRef.current,
+      { color: "#ffffff" },
+      { color: "#DBFF12", ease: "none" },
+      0 // Also starts at '0' so it perfectly syncs with the bar
     );
+
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className='min-h-screen bg-[#121212]'>
+    <div ref={containerRef} className='min-h-auto bg-[#121212]'>
       <SectionBorder
         primaryText='My Service'
         highlightText=''
@@ -71,14 +52,13 @@ export default function ServiceHeader() {
         {/* Headline */}
         <h1 className='text-4xl md:text-6xl text-white font-medium leading-tight mb-4'>
           I'll help to <br />
-          {/* 2. Attached the ref and set the initial color to white */}
           <span ref={textRef} className="text-white">level up</span> your brand
         </h1>
 
         {/* The Animated Progress Bar */}
         <div className="w-full">
           {/* The Track (Yellow Outline) */}
-          <div className="w-full h-3 md:h-8 border border-[#DBFF12] rounded-full p overflow-hidden">
+          <div className="w-full h-3 md:h-8 border border-[#DBFF12] rounded-full overflow-hidden">
             {/* The Filler */}
             <div 
               ref={progressBarRef} 

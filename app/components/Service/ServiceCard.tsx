@@ -1,46 +1,101 @@
-import React from "react";
+import React from 'react';
 
-// The blueprint for the props
-export interface ServiceCardProps {
+// 1. Prop Types
+interface ServiceCardProps {
   number: string;
   title: string;
   description: string;
-  bullets: string[];
-  isLast?: boolean;
+  features?: string[];
 }
 
-export default function ServiceCard({ 
+// 2. The Reusable Card Component (Internal to this file)
+function ServiceCard({ 
   number, 
   title, 
   description, 
-  bullets, 
-  isLast 
+  features = [] 
 }: ServiceCardProps) {
   return (
-    <div className={`relative p-6 md:p-10 flex flex-col gap-4 ${isLast ? "" : "border-b border-[#DBFF12]"}`}>
-      
-      {/* Background Number */}
-      <div className="absolute top-6 right-6 md:top-10 md:right-10 text-white text-4xl md:text-5xl font-bold tracking-tighter">
+    <div className="flex flex-col h-full px-6 pb-10 pt-6 mx-4 border-1  border-r-0 border-[#ccff0050]">
+      <div className="w-full text-right text-6xl font-extrabold text-white pb-3">
         {number}
       </div>
 
-      {/* Title */}
-      <h3 className="text-[#DBFF12] font-bold text-sm md:text-base w-3/4">
+      <h3 className="text-[#ccff00] font-bold text-md md:text-lg mb-4 w-4/5">
         {title}
       </h3>
 
-      {/* Description */}
-      <p className="text-gray-300 text-sm md:text-base leading-relaxed w-5/6 md:w-3/4">
+      <p className="text-gray-300 text-md leading-relaxed mb-6 w-11/12 md:w-5/6">
         {description}
       </p>
 
-      {/* Bullets List */}
-      <ul className="text-white font-bold text-sm md:text-base flex flex-col gap-1 mt-2">
-        {bullets.map((bullet, index) => (
-          <li key={index}>–{bullet}</li>
+      <ul className="flex flex-col gap-2">
+        {features?.map((feature, index) => (
+          <li key={index} className="text-white font-bold text-md">
+            -{feature}
+          </li>
         ))}
       </ul>
-      
+    </div>
+  );
+}
+
+// 3. The Main Section Component (Exported to use in your App)
+export default function ServicesSection() {
+  const servicesData: ServiceCardProps[] = [
+    {
+      number: "01",
+      title: "Engineered for Results",
+      description: "Lightning-fast digital experiences built with purpose. Every design choice and interaction is deliberately crafted to drive action and maximize your ROI.",
+      features: [
+        "Rapid page load speeds",
+        "Integrated data tracking",
+        "Continuous speed enhancements"
+      ]
+    },
+    {
+      number: "02",
+      title: "Intuitively Crafted",
+      description: "Navigation should be effortless. I create logical pathways, prominent calls to action, and frictionless interactions that feel natural on any screen size.",
+      features: [
+        "Purpose-driven UX/UI",
+        "Built for usability testing",
+        "100% adaptable layouts"
+      ]
+    },
+    {
+      number: "03",
+      title: "Beyond the Surface Requirements",
+      description: "A project description is just the starting line. Through deep-dive research and strategic planning, I turn vague ideas into a concrete, actionable roadmap.",
+      features: [
+        "In-depth strategy sessions",
+        "Market & competitor research",
+        "Actionable project roadmaps"
+      ]
+    },
+    {
+      number: "04",
+      title: "Rejecting the Ordinary",
+      description: "The internet is full of average; your brand deserves better. I am committed to delivering standout digital products that exceed expectations. Excellence is the baseline.",
+      features: [
+        "Unwavering standard of excellence",
+        "Meticulous craftsmanship",
+        "Data-backed success"
+      ]
+    }
+  ];
+
+  return (
+    <div className="  bg-[#111111]  py-10">
+      {servicesData.map((service) => (
+        <ServiceCard 
+          key={service.number}
+          number={service.number}
+          title={service.title}
+          description={service.description}
+          features={service.features}
+        />
+      ))}
     </div>
   );
 }
