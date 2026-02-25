@@ -17,22 +17,22 @@ function ServiceCard({
 }: ServiceCardProps) {
   return (
     <div className="flex flex-col h-full px-6 pb-10 pt-6 mx-4 border-1  border-r-0 border-[#ccff0050]">
-      <div className="w-full text-right text-6xl font-extrabold text-white pb-3">
+      <div className="w-full text-right text-7xl main-font-medium font-extrabold text-white pb-3">
         {number}
       </div>
 
-      <h3 className="text-[#ccff00] font-bold text-md md:text-lg mb-4 w-4/5">
+      <h3 className="text-[#ccff00] font-bold text-2xl md:text-lg mb-4 w-4/5">
         {title}
       </h3>
 
-      <p className="text-gray-300 text-md leading-relaxed mb-6 w-11/12 md:w-5/6">
+      <p className="text-gray-300 text-lg leading-relaxed mb-6 w-11/12 md:w-5/6">
         {description}
       </p>
 
       <ul className="flex flex-col gap-2">
         {features?.map((feature, index) => (
-          <li key={index} className="text-white font-bold text-md">
-            -{feature}
+          <li key={index} className="text-white font-bold text-xl">
+            <span className='text-[#ccff00]'>– </span>{feature}
           </li>
         ))}
       </ul>

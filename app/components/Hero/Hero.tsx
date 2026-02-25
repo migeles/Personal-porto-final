@@ -7,10 +7,10 @@ import SectionBorder from "./SectionBorder";
 
 export default function Hero() {
   return (
-    <section className='w-full min-h-auto bg-[#121212] text-white md:px-10 pt-13 pb-12  flex flex-col justify-start'>
+    <section className='w-full min-h-auto bg-[#121212] text-white md:px-10 pt-20 pb-12  flex flex-col justify-start'>
       {/* 1. TOP HEADLINE */}
       <div className='w-full max-w-350 mx-auto pt-10 pb-12 px-4'>
-        <h1 className='text-4xl md:text-7xl font-normal leading-[1] tracking-tight'>
+        <h1 className='text-6xl md:text-7xl font-normal leading-[1] tracking-tight'>
           CREATING <br />
           BEAUTIFUL <br />
           WEBSITES <br />
