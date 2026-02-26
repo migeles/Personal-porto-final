@@ -18,7 +18,7 @@ function ServiceCard({
   return (
     // Note: If the cards look unaligned in the grid, you might want to remove `mx-4` 
     // and rely entirely on the parent container's `gap` for spacing.
-    <div className="flex flex-col h-full px-6 pb-10 pt-6 mx-4 border-1 border-r-0 border-[#ccff0050] | xl:h-auto">
+    <div className="flex flex-col h-full px-6 pb-10 pt-6 mx-4 border-1 border-r-0 border-[#ccff0050] | xl:h-110 xl:pb-0">
       <div className="w-full text-right text-7xl main-font-medium font-extrabold text-white pb-3">
         {number}
       </div>
@@ -89,7 +89,7 @@ export default function ServicesSection() {
 
   return (
     // ADDED: grid grid-cols-1 xl:grid-cols-2 gap-8
-    <div className="bg-[#111111] py-10 xl:w-full xl:h-300 grid grid-cols-1 xl:grid-cols-2 gap-8">
+    <div className="bg-[#111111] py-10 xl:w-full xl:h-auto grid grid-cols-1 xl:grid-cols-2 gap-8">
       {servicesData.map((service) => (
         <ServiceCard 
           key={service.number}

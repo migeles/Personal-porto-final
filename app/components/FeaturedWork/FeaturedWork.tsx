@@ -39,6 +39,7 @@ export default function FeaturedWork() {
     // Changed h-screen to min-h-screen so it can expand dynamically
     <div className='bg-[#121212] min-h-screen w-full'>
       <SectionBorder
+        leftText="(REF — A.02)"
         primaryText='Featured Work'
         highlightText=''
         secondaryText='2025-2026'
