@@ -42,11 +42,7 @@ export default function ServiceHeader() {
 
   return (
     <div ref={containerRef} className='min-h-auto bg-[#121212]'>
-      <SectionBorder
-        primaryText='My Service'
-        highlightText=''
-        secondaryText='2025-2026'
-      />
+      
 
       <div className="flex flex-col justify-center px-4 pt-10 md:px-12 max-w-5xl">
         {/* Headline */}
