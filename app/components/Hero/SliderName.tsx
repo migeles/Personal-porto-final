@@ -23,19 +23,19 @@ export default function SliderName() {
   // Single unit of content
   const ContentItem = () => (
     <div className="flex items-center shrink-0">
-      <span className="text-7xl md:text-6xl font-semibold text-white mx-6">
+      <span className="text-7xl md:text-9xl font-semibold text-white mx-6">
         Migel Sastrawan Sugiarto
       </span>
       <img 
         src={decorlogo.src || decorlogo} 
         alt="shine" 
-        className="w-10 h-10 object-contain mx-6" 
+        className="w-10 h-10 md:w-14 md:h-14 object-contain mx-6" 
       />
     </div>
   );
 
   return (
-    <div className="w-full  overflow-hidden   pt-16 pb-5">
+    <div className="w-full  overflow-hidden pt-16 pb-5">
       <div ref={sliderRef} className="flex w-max">
         {/* Set 1: Covers the screen */}
         <div className="flex">

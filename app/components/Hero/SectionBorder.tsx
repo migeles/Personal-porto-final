@@ -1,29 +1,50 @@
 // 1. Define the blueprint for your props
 interface InfoBannerProps {
-  primaryText: string;
-  highlightText?: string; // The '?' makes it optional, in case you don't always want yellow text
-  secondaryText: string;
+  leftText: string; // Added for "Jakarta, Indonesia"
+  primaryText: string; // "Creative Developer."
+  highlightText?: string; // "Open for Freelance."
+  secondaryText: string; // "(REF — A.01)"
 }
 
 // 2. Attach the blueprint to your component
-export default function SectionBorder({ 
-  primaryText, 
-  highlightText, 
-  secondaryText 
+export default function SectionBorder({
+  leftText,
+  primaryText,
+  highlightText,
+  secondaryText,
 }: InfoBannerProps) {
   return (
-    <div>
-      <div className='flex w-full text-sm justify-between pt-10 pb-2 px-3'>
-        <h1 className='font-light text-[#a1a1a1] main-font-light'>
+    <div className="w-full">
+      {/* Responsive Grid: 
+        - grid-cols-1: Stacks items vertically on small screens (mobile)
+        - md:grid-cols-3: Splits into 3 equal columns on medium+ screens (desktop)
+      */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 w-full text-sm pt-10 pb-2 px-3 items-center">
+        {/* Left Column */}
+
+        <h1 className="font-light text-[#a1a1a1] main-font-light text-left">
           {primaryText}{" "}
           {/* Only render the highlight span if highlightText is provided */}
           {highlightText && (
-            <span className='font-bold text-[#DBFF12]'>{highlightText}</span>
+            <span className="font-bold text-[#DBFF12]">{highlightText}</span>
           )}
         </h1>
-        <h1 className="text-[#a1a1a1]  main-font-light">{secondaryText}</h1>
+
+        <div>
+
+        </div>
+        <div className="text-[#a1a1a1] main-font-light text-left">
+          {leftText}
+        </div>
+
+        {/* Middle Column */}
+
+        {/* Right Column (Pushed to the right on desktop) */}
+        <h1 className="text-[#a1a1a1] main-font-light text-left md:text-right">
+          {secondaryText}
+        </h1>
       </div>
-      <hr className='border-white opacity-20' />
+      <hr className="border-white opacity-20" />
     </div>
   );
 }
