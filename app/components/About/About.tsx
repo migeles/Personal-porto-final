@@ -12,7 +12,7 @@ export default function About() {
 
         {/* Container for Bio and Button */}
         {/* Added max-w-4xl to keep it readable and aligned with the section above */}
-        <div className='pt-10 px-6  max-w-4xl'>
+        <div className='pt-10 px-6 '>
           <h1 className='text-white text-xl md:text-3xl font-light tracking-tight leading-relaxed md:leading-snug mb-8'>
             Hey, I’m Migel. I strive to bring the highest level of craftsmanship to every project I take on. Beyond just making things look good, my goal is to help brands forge meaningful connections with their target market. By combining intuitive web design, strategic creative thinking, I build digital experiences that not only capture attention but drive real, measurable results
           </h1>

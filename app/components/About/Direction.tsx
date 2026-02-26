@@ -13,7 +13,7 @@ export default function Direction() {
     
       {/* Menu Links Container */}
       {/* max-w-3xl keeps the arrows relatively close to the text like in your image */}
-      <div className="flex flex-col w-full max-w-4xl">
+      <div className="flex flex-col w-full">
         {links.map((link, index) => (
           <a
             key={index}

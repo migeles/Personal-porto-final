@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import About from "./components/About/About";
 import FeaturedWork from "./components/FeaturedWork/FeaturedWork";
 import Service from "./components/Service/Service";
+import Contact from "./components/Contact/Contact";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <About/>
       <FeaturedWork/>
       <Service/>
+      <Contact/>
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function SectionBorder({
         - grid-cols-1: Stacks items vertically on small screens (mobile)
         - md:grid-cols-3: Splits into 3 equal columns on medium+ screens (desktop)
       */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 w-full text-sm pt-10 pb-2 px-3 items-center">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 w-full text-sm pt-10 pb-2 px-3 items-center">
         {/* Left Column */}
 
         <h1 className="font-light text-[#a1a1a1] main-font-light text-left">
@@ -29,18 +29,19 @@ export default function SectionBorder({
             <span className="font-bold text-[#DBFF12]">{highlightText}</span>
           )}
         </h1>
-
-        <div>
+        
+        <div className="hidden md:block">
 
         </div>
-        <div className="text-[#a1a1a1] main-font-light text-left">
+        
+        <div className="text-[#a1a1a1] main-font-light text-left hidden md:block">
           {leftText}
         </div>
 
         {/* Middle Column */}
 
         {/* Right Column (Pushed to the right on desktop) */}
-        <h1 className="text-[#a1a1a1] main-font-light text-left md:text-right">
+        <h1 className="text-[#a1a1a1] main-font-light text-right md:text-right">
           {secondaryText}
         </h1>
       </div>

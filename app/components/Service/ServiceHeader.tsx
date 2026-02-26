@@ -13,7 +13,6 @@ export default function ServiceHeader() {
   const textRef = useRef(null);
 
   useGSAP(() => {
-    // 1. Create a timeline attached to the ScrollTrigger
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
@@ -23,39 +22,32 @@ export default function ServiceHeader() {
       }
     });
 
-    // 2. Animate the bar's width AND background color smoothly
     tl.fromTo(
       progressBarRef.current,
       { width: "0%", backgroundColor: "#ffffff" },
       { width: "100%", backgroundColor: "#DBFF12", ease: "none" },
-      0 // The '0' tells it to start at the very beginning of the timeline
+      0 
     )
-    // 3. Animate the text color simultaneously
     .fromTo(
       textRef.current,
       { color: "#ffffff" },
       { color: "#DBFF12", ease: "none" },
-      0 // Also starts at '0' so it perfectly syncs with the bar
+      0 
     );
 
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className='min-h-auto bg-[#121212]'>
-      
-
-      <div className="flex flex-col justify-center items-center px-4 pt-10 md:px-4 max-w-full xl:pt-0">
-        {/* Headline */}
+    <div ref={containerRef} className='xl:sticky xl:top-24 min-h-auto bg-[#121212]'>
+      <div className="flex flex-col justify-center px-4 pt-10 md:px-4 max-w-full">
+        
         <h1 className='text-4xl md:text-6xl text-white font-medium leading-tighter mb-4 h-full'>
           I'll help to <br />
           <span ref={textRef} className="text-white">level up</span> your brand
         </h1>
         
-        {/* The Animated Progress Bar */}
         <div className="w-full">
-          {/* The Track (Yellow Outline) */}
           <div className="w-full h-3 md:h-3 border border-[#DBFF12] rounded-full overflow-hidden">
-            {/* The Filler */}
             <div 
               ref={progressBarRef} 
               className="h-full rounded-full w-0" 
