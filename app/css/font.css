@@ -1,20 +1,20 @@
 @font-face {
   font-family: "onest-regular";
-  src: url("../assets/Fonts/Onest-Regular.ttf") format("truetype");
+  src: url("../assets/fonts/Onest-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "onest-medium";
-  src: url("../assets/Fonts/Onest-Medium.ttf") format("truetype");
+  src: url("../assets/fonts/Onest-Medium.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "onest-light";
-  src: url("../assets/Fonts/Onest-Light.ttf") format("truetype");
+  src: url("../assets/fonts/Onest-Light.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
