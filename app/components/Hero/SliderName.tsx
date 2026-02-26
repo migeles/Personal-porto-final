@@ -27,7 +27,8 @@ export default function SliderName() {
         Migel Sastrawan Sugiarto
       </span>
       <img 
-        src={decorlogo.src || decorlogo} 
+        // Safely extracts the string whether the import is a raw URL or a Next.js StaticImageData object
+        src={typeof decorlogo === 'string' ? decorlogo : decorlogo.src} 
         alt="shine" 
         className="w-10 h-10 md:w-14 md:h-14 object-contain mx-6" 
       />
