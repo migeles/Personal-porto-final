@@ -39,7 +39,7 @@ export default function ServiceHeader() {
 
   return (
     <div ref={containerRef} className='xl:sticky xl:top-24 min-h-auto bg-[#121212]'>
-      <div className="flex flex-col justify-center px-4 pt-10 md:px-4 max-w-full xl:pb-20">
+      <div className="flex flex-col justify-center px-4 pt-10 md:px-4 max-w-full xl:pb-20 xl:pt-20">
         
         <h1 className='text-4xl md:text-6xl text-white font-medium leading-tighter mb-4 h-full'>
           I'll help to <br />

@@ -23,7 +23,7 @@ export default function FeaturedWork() {
 
     {
       title: "Q'RO",
-      category: "Web Development and Design",
+      category: "Web Development",
       imageUrl: qroThumbnail,
       link: "https://qrospirit.com/",
     },
