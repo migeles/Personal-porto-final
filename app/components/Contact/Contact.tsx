@@ -29,7 +29,7 @@ export default function Contact() {
     <div id="contact" className="bg-[#121212] h-full flex flex-col justify-between items-center pt-24 px-0 ">
       
       {/* Top Section: Profile & Call to Action */}
-      <div className="flex flex-col items-center w-full  mt-10">
+      <div className="flex flex-col items-center w-full  pt-30">
         
         {/* Profile Picture */}
         <img 
@@ -49,7 +49,7 @@ export default function Contact() {
         {/* Contact Buttons */}
         <div className="flex flex-col gap-4 w-full md:w-auto items-center">
           <a 
-            href="tel:+6287887206610" 
+            href="https://wa.me/6287887206610" 
             className="w-70 md:w-[320px] text-center px-5 py-4 border border-[#DBFF12] rounded-full text-white text-md md:text-base transition-all duration-300 hover:bg-[#DBFF12] hover:text-black"
           >
             +6287887206610
@@ -70,9 +70,9 @@ export default function Contact() {
         <div className="flex flex-col items-center md:hidden pb-8">
           <span className="text-gray-500 text-sm pb-4">Socials</span>
           <div className="flex gap-6 text-white text-base">
-            <a href="#" className="hover:text-[#DBFF12] transition-colors">Instagram</a>
-            <a href="#" className="hover:text-[#DBFF12] transition-colors">Linkedin</a>
-            <a href="#" className="hover:text-[#DBFF12] transition-colors">Whatsapp</a>
+            <a href="https://www.instagram.com/migelss01/reels/" className="hover:text-[#DBFF12] transition-colors">Instagram</a>
+            <a href="https://www.linkedin.com/in/migel-sastrawan-sugiarto/" className="hover:text-[#DBFF12] transition-colors">Linkedin</a>
+            <a href="https://wa.me/6287887206610" className="hover:text-[#DBFF12] transition-colors">Whatsapp</a>
           </div>
         </div>
 
@@ -83,7 +83,7 @@ export default function Contact() {
         <div className="flex flex-row justify-between items-end w-full">
           
           {/* Left Side: Version & Time */}
-          <div className="flex justify-between w-full md:w-auto md:gap-32 px-6 md:px-0">
+          <div className="flex justify-between w-full md:w-auto md:gap-32 px-6 ">
             <div className="flex flex-col">
               <span className="text-gray-500 text-xs mb-1">Version</span>
               <span className="text-white text-sm md:text-base font-medium">©2026</span>
@@ -95,12 +95,12 @@ export default function Contact() {
           </div>
 
           {/* Right Side: Desktop Socials (Hidden on mobile) */}
-          <div className="hidden md:flex flex-col items-start">
+          <div className="hidden md:flex flex-col items-start md:px-6">
             <span className="text-gray-500 text-xs mb-1">Socials</span>
             <div className="flex gap-8 text-white text-base">
-              <a href="#" className="hover:text-[#DBFF12] transition-colors">Instagram</a>
-              <a href="#" className="hover:text-[#DBFF12] transition-colors">Linkedin</a>
-              <a href="#" className="hover:text-[#DBFF12] transition-colors">Whatsapp</a>
+              <a href="https://www.instagram.com/migelss01/reels/" className="hover:text-[#DBFF12] transition-colors">Instagram</a>
+              <a href="https://www.linkedin.com/in/migel-sastrawan-sugiarto/" className="hover:text-[#DBFF12] transition-colors">Linkedin</a>
+              <a href="https://wa.me/6287887206610" className="hover:text-[#DBFF12] transition-colors">Whatsapp</a>
             </div>
           </div>
           

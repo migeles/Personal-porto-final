@@ -23,17 +23,17 @@ function ServiceCard({
         {number}
       </div>
 
-      <h3 className="text-[#ccff00] font-bold text-2xl md:text-lg mb-4 w-4/5">
+      <h3 className="text-[#ccff00] font-bold text-xl md:text-lg mb-4 w-4/5">
         {title}
       </h3>
 
-      <p className="text-gray-300 text-lg leading-relaxed mb-6 w-11/12 md:w-5/6">
+      <p className="text-gray-300 text-sm md:text-lg leading-relaxed mb-6 w-11/12 md:w-5/6">
         {description}
       </p>
 
       <ul className="flex flex-col gap-2">
         {features?.map((feature, index) => (
-          <li key={index} className="text-white font-bold text-xl">
+          <li key={index} className="text-white font-bold text-md md:text-lg">
             <span className='text-[#ccff00]'>– </span>{feature}
           </li>
         ))}
@@ -68,7 +68,7 @@ export default function ServicesSection() {
     {
       number: "03",
       title: "Beyond the Surface Requirements",
-      description: "A project description is just the starting line. Through deep-dive research and strategic planning, I turn vague ideas into a concrete, actionable roadmap.",
+      description: "A project description is just the starting line. Through deep-dive research and strategic planning.",
       features: [
         "In-depth strategy sessions",
         "Market & competitor research",
@@ -78,7 +78,7 @@ export default function ServicesSection() {
     {
       number: "04",
       title: "Rejecting the Ordinary",
-      description: "The internet is full of average; your brand deserves better. I am committed to delivering standout digital products that exceed expectations. Excellence is the baseline.",
+      description: "The internet is full of average; your brand deserves better. I am committed to delivering standout digital products that exceed expectations.",
       features: [
         "Unwavering standard of excellence",
         "Meticulous craftsmanship",
