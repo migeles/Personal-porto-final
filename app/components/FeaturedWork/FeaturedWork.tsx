@@ -12,20 +12,20 @@ export default function FeaturedWork() {
       title: "Soda Bantenk",
       category: "Web Development and Design",
       imageUrl: bantenkThumbnail,
-      link: "#",
+      link: "https://sodabantenkgroup.com",
     },
     {
       title: "Kartuas Brandy",
       category: "Web Development and Design",
       imageUrl: kartuasThumbnail,
-      link: "#",
+      link: "https://kartuasgroup.com",
     },
 
     {
       title: "Q'RO",
       category: "Web Development and Design",
       imageUrl: qroThumbnail,
-      link: "#",
+      link: "https://qrospirit.com/",
     },
     {
       title: "Start Your Project", // Or "Add Yours"
