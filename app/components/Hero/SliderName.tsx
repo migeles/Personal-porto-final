@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import decorlogo from "../../assets/image/shine-img.png";
+import decorlogo from "../../assets/image/shine-img.webp";
 
 export default function SliderName() {
   const sliderRef = useRef(null);
@@ -11,9 +11,9 @@ export default function SliderName() {
     const ctx = gsap.context(() => {
       gsap.to(sliderRef.current, {
         xPercent: -50, // Move exactly half the total width
-        repeat: -1,    // Infinite loop
-        duration: 50,  // Speed (higher is slower)
-        ease: "none",  // Linear movement (no speeding up/slowing down)
+        repeat: -1, // Infinite loop
+        duration: 50, // Speed (higher is slower)
+        ease: "none", // Linear movement (no speeding up/slowing down)
       });
     });
 
@@ -26,11 +26,11 @@ export default function SliderName() {
       <span className="text-7xl md:text-9xl font-semibold text-white mx-6">
         Migel Sastrawan Sugiarto
       </span>
-      <img 
+      <img
         // Safely extracts the string whether the import is a raw URL or a Next.js StaticImageData object
-        src={typeof decorlogo === 'string' ? decorlogo : decorlogo.src} 
-        alt="shine" 
-        className="w-10 h-10 md:w-14 md:h-14 object-contain mx-6" 
+        src={typeof decorlogo === "string" ? decorlogo : decorlogo.src}
+        alt="shine"
+        className="w-10 h-10 md:w-14 md:h-14 object-contain mx-6"
       />
     </div>
   );

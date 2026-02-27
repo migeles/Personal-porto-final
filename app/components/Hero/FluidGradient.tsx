@@ -6,7 +6,7 @@ import * as THREE from "three";
 // 1. Import useTexture from Drei
 import { useTexture } from "@react-three/drei";
 // 2. Adjust path if necessary to match your asset folder
-import ppImage from "../../assets/image/pp.png";
+import ppImage from "../../assets/image/pp.webp";
 
 // --- EXISTING BACKGROUND SHADERS (Unchanged, so this background stays) ---
 const vertexShader = `
@@ -133,20 +133,20 @@ const BouncingProfilePic = () => {
 
   // ---> ADD THIS NEW VARIABLE <---
   // This is the invisible buffer zone. Increase it to push the walls further in.
-  const padding = 0.08; 
+  const padding = 0.08;
 
-  const pos = useRef(new THREE.Vector3(0, 0, 0.1)); 
-  const vel = useRef(new THREE.Vector2(0.001, 0.0008)); 
+  const pos = useRef(new THREE.Vector3(0, 0, 0.1));
+  const vel = useRef(new THREE.Vector2(0.001, 0.0008));
   const hue = useRef(Math.random());
 
   useFrame((state, delta) => {
     if (!meshRef.current) return;
 
     // ---> UPDATE THESE 4 LINES TO INCLUDE THE PADDING <---
-    const screenRight = (viewport.width / 2) - (picSize / 2) - padding;
-    const screenLeft = -(viewport.width / 2) + (picSize / 2) + padding;
-    const screenTop = (viewport.height / 2) - (picSize / 2) - padding;
-    const screenBottom = -(viewport.height / 2) + (picSize / 2) + padding;
+    const screenRight = viewport.width / 2 - picSize / 2 - padding;
+    const screenLeft = -(viewport.width / 2) + picSize / 2 + padding;
+    const screenTop = viewport.height / 2 - picSize / 2 - padding;
+    const screenBottom = -(viewport.height / 2) + picSize / 2 + padding;
 
     // ... the rest of your collision code stays exactly the same!
     pos.current.x += vel.current.x;

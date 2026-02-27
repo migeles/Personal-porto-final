@@ -1,9 +1,9 @@
 import SectionBorder from "../Hero/SectionBorder";
 import Work from "./Work"; // This is your reusable card component
 import InfiniteSliderGimick from "./InfiniteSliderGimik";
-import qroThumbnail from "../../assets/image/qrothumbnail.png";
-import kartuasThumbnail from "../../assets/image/kartuasthumbnail.png";
-import bantenkThumbnail from "../../assets/image/bantenkthumbnail.png";
+import qroThumbnail from "../../assets/image/qrothumbnail.webp";
+import kartuasThumbnail from "../../assets/image/kartuasthumbnail.webp";
+import bantenkThumbnail from "../../assets/image/bantenkthumbnail.webp";
 
 export default function FeaturedWork() {
   // 1. Create an array of your projects to easily map through them
@@ -37,16 +37,16 @@ export default function FeaturedWork() {
 
   return (
     // Changed h-screen to min-h-screen so it can expand dynamically
-    <div className='bg-[#121212] min-h-screen w-full'>
+    <div className="bg-[#121212] min-h-screen w-full">
       <SectionBorder
         leftText="(REF — A.02)"
-        primaryText='Featured Work'
-        highlightText=''
-        secondaryText='2025-2026'
+        primaryText="Featured Work"
+        highlightText=""
+        secondaryText="2025-2026"
       />
 
       {/* 2. The Grid Container */}
-      <div className='px-6 md:px- py-12 grid grid-cols-1 md:grid-cols-2 gap-12 mx-auto | md:gap-7 '>
+      <div className="px-6 md:px- py-12 grid grid-cols-1 md:grid-cols-2 gap-12 mx-auto | md:gap-7 ">
         {/* 3. Map through the projects array and render a <Work /> component for each */}
         {projects.map((project, index) => (
           <Work
@@ -59,7 +59,7 @@ export default function FeaturedWork() {
           />
         ))}
       </div>
-      <InfiniteSliderGimick/>
+      <InfiniteSliderGimick />
     </div>
   );
 }

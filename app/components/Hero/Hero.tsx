@@ -1,6 +1,6 @@
 "use client";
 import FluidGradient from "./FluidGradient"; // Make sure this path is correct
-import Decorlogo from "../../assets/image/shine-img.png"; // Your star icon
+import Decorlogo from "../../assets/image/shine-img.webp"; // Your star icon
 import SliderName from "./SliderName";
 import RotatingText from "./RotatingText";
 import SectionBorder from "./SectionBorder";
@@ -20,10 +20,10 @@ export default function Hero() {
 
         {/* 2. THE FLUID GRADIENT CARD */}
         {/* <div className="w-full max-w-350  mx-auto relative px-4"> */}
-          {/* <div className="w-full h-auto  rounded-[1rem] overflow-hidden relative border border-white/5"> */}
-            {/* The fluid simulation lives inside here */}
-            {/* <FluidGradient className=" w-full md:w-64 aspect-square" /> */}
-          {/* </div> */}
+        {/* <div className="w-full h-auto  rounded-[1rem] overflow-hidden relative border border-white/5"> */}
+        {/* The fluid simulation lives inside here */}
+        {/* <FluidGradient className=" w-full md:w-64 aspect-square" /> */}
+        {/* </div> */}
         {/* </div> */}
 
         <div className="w-full flex justify-center md:justify-end px-4">
@@ -42,7 +42,6 @@ export default function Hero() {
         leftText="(REF — A.01)"
         primaryText="Web Developer."
         highlightText="Open for Freelance."
-        
         secondaryText="Indonesia"
       />
     </section>
