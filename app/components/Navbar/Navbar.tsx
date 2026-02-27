@@ -155,7 +155,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 z-50 w-full flex flex-col justify-start bg-[#121212]">
-      <div className="flex justify-between items-center w-full px-8 py-3 h-20 ">
+      <div className="flex justify-between items-center w-full px-4 py-3 h-20 ">
         
         {/* Animated Logo */}
         <AnimatedLogo />

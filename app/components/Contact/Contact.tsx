@@ -26,7 +26,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <div id="contact" className="bg-[#121212] max-h-screen flex flex-col justify-between items-center pt-24 px-6 ">
+    <div id="contact" className="bg-[#121212] h-full flex flex-col justify-between items-center pt-24 px-0 ">
       
       {/* Top Section: Profile & Call to Action */}
       <div className="flex flex-col items-center w-full  mt-10">
@@ -36,11 +36,11 @@ export default function Contact() {
           // Safely handles both static string and Next.js Image objects
           src={typeof profilePicture === 'string' ? profilePicture : profilePicture?.src} 
           alt="Migel Profile" 
-          className="w-40 h-40 md:w-36 md:h-36 rounded-full object-cover mb-8"
+          className="w-32 h-32 md:w-36 md:h-36 rounded-full object-cover mb-8"
         />
         
         {/* Main Heading */}
-        <h1 className="text-7xl md:text-[6.5rem] font-medium text-center leading-20 xl:leading-28 mb-12 tracking-normal xl:tracking-tight">
+        <h1 className="text-5xl md:text-[6.5rem] font-medium text-center leading-13 xl:leading-28 mb-12 tracking-normal xl:tracking-tight">
           <span className="text-[#DBFF12]">Let’s Create</span>
           <br />
           <span className="text-white">Together</span>
@@ -50,13 +50,13 @@ export default function Contact() {
         <div className="flex flex-col gap-4 w-full md:w-auto items-center">
           <a 
             href="tel:+6287887206610" 
-            className="w-90 md:w-[320px] text-center px-8 py-4 border border-[#DBFF12] rounded-full text-white text-xl md:text-base transition-all duration-300 hover:bg-[#DBFF12] hover:text-black"
+            className="w-70 md:w-[320px] text-center px-5 py-4 border border-[#DBFF12] rounded-full text-white text-md md:text-base transition-all duration-300 hover:bg-[#DBFF12] hover:text-black"
           >
             +6287887206610
           </a>
           <a 
             href="mailto:hello@migelssugiarto.xyz" 
-            className="w-90 md:w-[320px] text-center px-8 py-4 border border-[#DBFF12] rounded-full text-white text-xl md:text-base transition-all duration-300 hover:bg-[#DBFF12] hover:text-black"
+            className="w-70 md:w-[320px] text-center px-5 py-4 border border-[#DBFF12] rounded-full text-white text-md md:text-base transition-all duration-300 hover:bg-[#DBFF12] hover:text-black"
           >
             hello@migelssugiarto.xyz
           </a>
@@ -64,11 +64,11 @@ export default function Contact() {
       </div>
 
       {/* Footer Section */}
-      <div className="w-full  mt-32 pb-8">
+      <div className="w-full  mt-32 pb-8 bg-[#121212]">
         
         {/* Mobile Socials (Stacked ABOVE the line, hidden on desktop) */}
-        <div className="flex flex-col items-center md:hidden mb-8">
-          <span className="text-gray-500 text-sm mb-4">Socials</span>
+        <div className="flex flex-col items-center md:hidden pb-8">
+          <span className="text-gray-500 text-sm pb-4">Socials</span>
           <div className="flex gap-6 text-white text-base">
             <a href="#" className="hover:text-[#DBFF12] transition-colors">Instagram</a>
             <a href="#" className="hover:text-[#DBFF12] transition-colors">Linkedin</a>
@@ -83,7 +83,7 @@ export default function Contact() {
         <div className="flex flex-row justify-between items-end w-full">
           
           {/* Left Side: Version & Time */}
-          <div className="flex justify-between w-full md:w-auto md:gap-32">
+          <div className="flex justify-between w-full md:w-auto md:gap-32 px-6 md:px-0">
             <div className="flex flex-col">
               <span className="text-gray-500 text-xs mb-1">Version</span>
               <span className="text-white text-sm md:text-base font-medium">©2026</span>

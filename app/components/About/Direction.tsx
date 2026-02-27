@@ -21,7 +21,7 @@ export default function Direction() {
             className="group flex items-center justify-between py-0 cursor-pointer"
           >
             {/* Link Text */}
-            <span className="text-white text-6xl md:text-8xl leading-none uppercase tracking-tight transition-colors duration-300 main-font-light group-hover:text-[#DBFF12]">
+            <span className="text-white text-5xl md:text-8xl leading-none uppercase tracking-tight transition-colors duration-300 main-font-light group-hover:text-[#DBFF12]">
               {link.name}
             </span>
 

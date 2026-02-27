@@ -11,7 +11,7 @@ export default function Hero() {
       {/* 1. TOP HEADLINE */}
       <div className="md:flex md:justify-around md:w-full md:pt-4">
         <div className="w-full max-w-350 mx pt-10  pb-12 px-4">
-          <h1 className="text-6xl font-normal leading-[1] tracking-tight | md:text-6xl ">
+          <h1 className="text-4xl font-normal leading-[1] tracking-tight | md:text-6xl ">
             CREATING <br />
             BEAUTIFUL WEBSITES <br />
             FOR <RotatingText />
