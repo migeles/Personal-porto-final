@@ -228,7 +228,7 @@ export default function FluidGradient({ className = "" }: FluidGradientProps) {
         <GradientBackgroundMesh />
 
         {/* Layer 2: The foreground bouncing profile picture */}
-        <BouncingProfilePic />
+        {/* <BouncingProfilePic /> */}
       </Canvas>
     </div>
   );
