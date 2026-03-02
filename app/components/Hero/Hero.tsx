@@ -7,7 +7,7 @@ import SectionBorder from "./SectionBorder";
 
 export default function Hero() {
   return (
-    <section className="w-full min-h-auto bg-[#121212] text-white pt-20 pb-12 flex flex-col justify-start">
+    <section id="home" className="w-full min-h-auto bg-[#121212] text-white pt-20 pb-12 flex flex-col justify-start">
       {/* 1. TOP HEADLINE */}
       <div className="md:flex md:justify-around md:w-full md:pt-4">
         <div className="w-full max-w-350 mx pt-10  pb-12 px-4">

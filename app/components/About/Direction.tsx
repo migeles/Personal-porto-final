@@ -1,10 +1,10 @@
 import React from "react";
 
 const links = [
-  { name: "ABOUT", href: "#" },
-  { name: "WORK", href: "#" },
-  { name: "SERVICES", href: "#" },
-  { name: "CONTACT", href: "#" },
+  { name: "ABOUT", href: "#about" },
+  { name: "WORK", href: "#work" },
+  { name: "SERVICES", href: "#service" },
+  { name: "CONTACT", href: "#contact" },
 ];
 
 export default function Direction() {
