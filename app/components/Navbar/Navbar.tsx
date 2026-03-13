@@ -87,30 +87,18 @@ const AnimatedLogo = () => {
     <div className="cursor-pointer group flex items-center text-3xl font-bold tracking-normal pb-1">
       {/* 1. M1GEL in solid lime-yellow (Indices 0 to 4) */}
       <span className="flex">
-        {"M1GEL ".split("").map((char, i) =>
+        {"M ".split("").map((char, i) =>
           renderRollingLetter(char, i, "text-[#DBFF12]", "text-[#DBFF12]")
         )}
       </span>
 
       {/* 2. The Dot in white outline (Index 5) */}
-      <span className="flex">
+      {/* <span className="flex">
         {renderRollingLetter(".", 5, "text-transparent [-webkit-text-stroke:1px_white]", "text-transparent [-webkit-text-stroke:1px_white]")}
-      </span>
+      </span> */}
 
       {/* 3. The animated acronym section */}
-      <span className="flex relative">
-        {/* Letter: 'A' (Index 6) */}
-        {renderRollingLetter("A", 6, "text-[#DBFF12]", "text-[#DBFF12]")}
-
-        {/* Hidden word: 't your ' (Indices 7 to 13) */}
-        {renderExpandingText("t your ", 7)}
-
-        {/* Letter: 'S' (Index 14) */}
-        {renderRollingLetter("S", 14, "text-[#DBFF12]", "text-[#DBFF12]")}
-
-        {/* Hidden word: 'ervice' (Indices 15 to 20) */}
-        {renderExpandingText("ervice :)", 15)}
-      </span>
+     
     </div>
   );
 };
