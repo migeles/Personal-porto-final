@@ -4,7 +4,7 @@ import SectionBorder from "../Hero/SectionBorder";
 
 export default function Service() {
   return (
-    <div className='bg-[#121212] h-auto w-full '>
+    <div id="service" className='bg-[#121212] h-auto w-full '>
       <SectionBorder
         leftText="(REF — A.03)"
         primaryText='My Service'
